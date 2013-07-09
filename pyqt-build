@@ -1,0 +1,25 @@
+$! /bin/bash
+
+PKGNAME=pyqt
+PKGVER=4.14.7
+
+SRC_DIR=/afs/enea.it/project/fissicu/soft/lib/src/$PKGNAME-$PKGVER
+INSTALL_DIR=/afs/enea.it/project/fissicu/soft/lib/$PKGNAME-$PKGVER
+
+SIP_DIR=/afs/enea.it/project/fissicu/soft/lib/sip-4.14.7
+
+PATH=/usr/lib64/qt4/bin:$SIP_DIR/bin:$PATH
+PYTHONPATH=$SIP_DIR/lib/python2.6/site-packages:$PYTHONPATH
+
+python2 configure-ng.py \
+  -b $INSTALL_DIR/bin \
+  -d $INSTALL_DIR/lib/python2.6/site-packages \
+  -v $INSTALL_DIR/share/sip \
+  --consolidate \
+  --sip-incdir=$SIP_DIR/include/python2.6 \
+  --confirm-license
+
+make
+
+make install
+

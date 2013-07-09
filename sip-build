@@ -1,0 +1,16 @@
+$! /bin/bash
+
+PKGNAME=sip
+PKGVER=4.14.7
+
+SRC_DIR=/afs/enea.it/project/fissicu/soft/lib/src/$PKGNAME-$PKGVER
+INSTALL_DIR=/afs/enea.it/project/fissicu/soft/lib/$PKGNAME-$PKGVER
+
+python2 configure.py \
+  -b $INSTALL_DIR/bin \
+  -d $INSTALL_DIR/lib/python2.6/site-packages \
+  -e $INSTALL_DIR/include/python2.6 \
+  -v $INSTALL_DIR/share/sip
+
+make install
+
