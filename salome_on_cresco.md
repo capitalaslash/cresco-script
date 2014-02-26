@@ -37,7 +37,7 @@ __overwrite__:
 [
   {
     'TOOLS.common.editor' : 'vim'
-    'TOOLS.prepare.archive_dir' : '/data/aslash/software/sat/ARCHIVES'
+    'TOOLS.prepare.archive_dir' : '/afs/enea.it/project/fissicu/soft/sat/ARCHIVES'
     'TOOLS.prerequisite.prereq_root_dir' : '/afs/enea.it/project/fissicu/soft/sat/PREREQUISITE'
     'TOOLS.prerequisite.archive_dir' : '/afs/enea.it/project/fissicu/soft/sat/PREREQUISITES/SOURCES'
   }
