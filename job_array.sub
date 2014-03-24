@@ -1,0 +1,36 @@
+#!/bin/bash
+
+### Job name
+#BSUB -J "array_test[1-8]"
+
+### Queue name
+#BSUB -q cresco_serh24
+
+### Number of procs
+###BSUB -n 8
+
+### proc allocation options
+###BSUB -R "span[hosts=1]"
+
+### wall time
+###BSUB -W 24:00
+
+### out, err and input
+#BSUB -o array_test-%I.%J.out
+#BSUB -e array_test-%I.%J.err
+###BSUB -i input-%I.dat
+
+WORKDIR=/afs/enea.it/project/fissicu/soft/test/job_array
+EXE=array_exe
+
+HOSTFILE=$LSB_DJOB_HOSTFILE
+NPROCS=$(cat $LSB_DJOB_HOSTFILE | wc -l)
+
+cd $WORKDIR
+#mkdir $RUNDIR
+#cp $WORKDIR/$EXE $RUNDIR
+#cp $WORKDIR/$DATA $RUNDIR
+#cd $RUNDIR
+
+./$EXE input-%I.dat
+ 
